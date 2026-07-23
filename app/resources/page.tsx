@@ -83,9 +83,9 @@ export default function ResourcesPage() {
             Blueprints &amp; Downloads
           </h1>
           <p className="text-warm-600 dark:text-warm-400 text-lg max-w-2xl mx-auto mt-5 leading-relaxed">
-            Ready-to-use operational blueprints, workflow guides, and productivity
-            frameworks. Each asset is available for direct download in PDF or
-            structured document format.
+            A curated collection of production-ready automation blueprints,
+            operational frameworks, and downloadable assets designed to optimize
+            workflows, streamline client management, and scale business operations.
           </p>
         </motion.div>
 
