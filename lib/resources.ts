@@ -69,6 +69,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "ai-fluency-vocabulary-cheat-sheet",
+    title: "AI Fluency: Essential Vocabulary & Concepts Cheat Sheet",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A curated reference guide covering foundational AI terminology, machine learning concepts, automation vocabulary, and practical language for leading AI-driven initiatives in executive operations.",
+    highlights: [
+      {
+        label: "Core AI Terminology",
+        detail:
+          "Key terms like LLM, NLP, RAG, fine-tuning, prompt engineering, and vector databases explained in plain business language with real-world context.",
+      },
+      {
+        label: "Automation & Workflow Vocabulary",
+        detail:
+          "Definitions for trigger-action logic, API orchestration, webhooks, conditional branching, and event-driven automation patterns used across modern CRM platforms.",
+      },
+      {
+        label: "Data Science Foundations",
+        detail:
+          "Concepts including supervised vs unsupervised learning, feature engineering, model evaluation, and data pipeline architecture distilled for non-technical stakeholders.",
+      },
+      {
+        label: "Executive Communication Guide",
+        detail:
+          "Language patterns for briefing leadership on AI readiness, vendor evaluation criteria, ROI framing, and strategic roadmaps for organizational AI adoption.",
+      },
+    ],
+    tags: ["AI", "Machine Learning", "Executive Reference", "Automation", "Digital Fluency"],
+    filename: "ai-fluency-vocabulary-cheat-sheet.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
