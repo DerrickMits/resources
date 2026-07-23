@@ -273,6 +273,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "ai-generalist-roadmap-june-2026",
+    title: "AI Generalist Roadmap — June 2026 Skills & Strategy Guide",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A forward-looking roadmap for building AI generalist expertise covering foundational knowledge, tool proficiency, strategic application frameworks, and an actionable 90-day learning plan tailored for operations and leadership professionals.",
+    highlights: [
+      {
+        label: "Foundations & Core Literacy",
+        detail:
+          "Overview of AI subfields (ML, NLP, computer vision, generative AI), key terminology, model types, and the current landscape of enterprise AI tools and platforms.",
+      },
+      {
+        label: "Tool Proficiency Stack",
+        detail:
+          "Curated stack of essential AI tools for operations: automation platforms, AI writing assistants, data analysis copilots, workflow builders, and no-code AI app constructors.",
+      },
+      {
+        label: "Strategic Application Frameworks",
+        detail:
+          "Frameworks for identifying high-impact automation opportunities, evaluating build vs buy decisions, managing AI vendors, and building internal AI fluency across teams.",
+      },
+      {
+        label: "90-Day Learning Plan",
+        detail:
+          "Week-by-week roadmap covering prompt engineering practice, tool experimentation, project-based learning, certification paths, and portfolio building for AI generalist roles.",
+      },
+    ],
+    tags: ["AI", "Roadmap", "Executive Framework", "Strategy", "Professional Development"],
+    filename: "ai-generalist-roadmap-june-2026.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
