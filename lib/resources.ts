@@ -307,6 +307,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "gen-ai-money-playbook",
+    title: "Generative AI Money Playbook — Monetization & ROI Strategy",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A strategic playbook for identifying, evaluating, and executing generative AI monetization opportunities. Covers use case discovery, cost-benefit analysis, pricing models, implementation roadmaps, and ROI measurement frameworks for leaders and operators.",
+    highlights: [
+      {
+        label: "Opportunity Identification",
+        detail:
+          "Frameworks for scanning business functions for high-value AI applications, prioritizing use cases by impact and feasibility, and building a monetization opportunity pipeline.",
+      },
+      {
+        label: "Cost-Benefit & ROI Analysis",
+        detail:
+          "Templates for calculating implementation costs, projected efficiency gains, revenue uplift estimates, and payback periods across different AI investment scenarios.",
+      },
+      {
+        label: "Pricing & Go-to-Market Strategy",
+        detail:
+          "Models for packaging AI capabilities (subscription, usage-based, outcome-based), positioning against competitors, and designing pricing tiers that capture value without stalling adoption.",
+      },
+      {
+        label: "Execution Roadmap & Measurement",
+        detail:
+          "Phased implementation timeline covering pilot design, scaling triggers, team structure, KPI dashboards, and continuous optimization loops to track and improve AI-driven revenue impact.",
+      },
+    ],
+    tags: ["AI", "Monetization", "Strategy", "ROI", "Executive Framework"],
+    filename: "gen-ai-money-playbook.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
