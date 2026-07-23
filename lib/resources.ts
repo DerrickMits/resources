@@ -239,6 +239,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "content-promotion-checklist",
+    title: "Content Promotion Checklist — Multi-Channel Distribution Guide",
+    category: "SOP Blueprint",
+    format: "PDF Document",
+    description:
+      "A complete content promotion checklist covering pre-publish optimization, multi-channel distribution, paid amplification, influencer outreach, performance tracking, and repurposing workflows to maximize every piece of content.",
+    highlights: [
+      {
+        label: "Pre-Publish Optimization",
+        detail:
+          "Checklist for SEO metadata, social cards, headline testing, canonical URLs, schema markup, and asset preparation before any content goes live.",
+      },
+      {
+        label: "Multi-Channel Distribution",
+        detail:
+          "Step-by-step workflows for publishing across owned channels (email, blog, social), earned channels (PR, guest posts, podcasts), and paid channels (social ads, sponsored content, retargeting).",
+      },
+      {
+        label: "Influencer & Partner Amplification",
+        detail:
+          "Templates for identifying relevant voices, drafting personalized outreach, managing co-marketing agreements, and tracking share-of-voice from partner promotions.",
+      },
+      {
+        label: "Performance & Repurposing",
+        detail:
+          "KPI tracking sheets for traffic, engagement, and conversion metrics per channel. Guidelines for repurposing top-performing content into multiple formats (video, infographic, webinar, ebook).",
+      },
+    ],
+    tags: ["Content Marketing", "Promotion", "Digital Strategy", "SOP", "Growth"],
+    filename: "content-promotion-checklist.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
