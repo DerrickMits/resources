@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "title": "GoHighLevel High-Performance Multi-Stage Sales Automation Engine",
+    "version": "1.0.0",
+    "date": "2026-07-15",
+    "author": "Derrick Odiwuor",
+    "platform": "GoHighLevel",
+    "category": "CRM Automation"
+  },
+  "workflows": [
+    {
+      "name": "Workflow 1: Initial Inbound Lead Nurturing",
+      "trigger": {
+        "type": "inbound_form",
+        "config": {
+          "form_source": "web_form",
+          "form_id": "{{selected_form}}"
+        }
+      },
+      "settings": {
+        "allow_reentry": true,
+        "time_constraints": {
+          "enabled": true,
+          "schedule": {
+            "days": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+            "start_time": "09:00",
+            "end_time": "17:00",
+            "timezone": "America/New_York"
+          }
+        },
+        "stop_on_response": true
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "create_opportunity",
+          "config": {
+            "pipeline": "{{selected_pipeline}}",
+            "stage": "New Lead"
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_email",
+          "config": {
+            "template": "{{nurture_email_template}}",
+            "time_constraint": "business_hours"
+          }
+        },
+        {
+          "order": 3,
+          "type": "send_sms",
+          "config": {
+            "template": "{{nurture_sms_template}}",
+            "time_constraint": "business_hours"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workflow 2: Active Response and Hot Lead Routing",
+      "trigger": {
+        "type": "customer_replied",
+        "config": {
+          "filter": {
+            "workflow_source": "Workflow 1: Initial Inbound Lead Nurturing"
+          }
+        }
+      },
+      "settings": {
+        "allow_reentry": false
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "move_stage",
+          "config": {
+            "pipeline": "{{selected_pipeline}}",
+            "stage": "Hot Lead"
+          }
+        },
+        {
+          "order": 2,
+          "type": "internal_notification",
+          "config": {
+            "method": "email_sms_push",
+            "recipient": "assigned_rep",
+            "dynamic_values": {
+              "contact_name": "{{contact_name}}",
+              "message_body": "{{reply_text}}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workflow 3: Appointment Booking Confirmation",
+      "trigger": {
+        "type": "customer_booked_appointment",
+        "config": {
+          "calendar": "{{team_calendar}}"
+        }
+      },
+      "settings": {
+        "allow_reentry": false
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "send_email",
+          "config": {
+            "template": "{{booking_confirmation_template}}",
+            "dynamic_variables": {
+              "staff_name": "{{account_user_name}}",
+              "meeting_link": "{{virtual_location}}",
+              "start_time": "{{appointment_start_time}}",
+              "date": "{{appointment_date}}",
+              "reschedule_link": "{{cancel_reschedule_url}}"
+            }
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_push_notification",
+          "config": {
+            "recipient": "assigned_provider",
+            "on_click_redirect": "opportunity_card"
+          }
+        },
+        {
+          "order": 3,
+          "type": "move_stage",
+          "config": {
+            "pipeline": "{{selected_pipeline}}",
+            "stage": "Booked"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Workflow 4: Post Appointment Management for No Shows",
+      "trigger": {
+        "type": "appointment_status",
+        "config": {
+          "status_filter": "No Show"
+        }
+      },
+      "settings": {
+        "allow_reentry": true
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "move_stage",
+          "config": {
+            "pipeline": "{{selected_pipeline}}",
+            "stage": "No Show"
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_email",
+          "config": {
+            "template": "{{no_show_reengagement_email}}"
+          }
+        },
+        {
+          "order": 3,
+          "type": "send_sms",
+          "config": {
+            "template": "{{no_show_reengagement_sms}}"
+          }
+        }
+      ]
+    }
+  ]
+}
