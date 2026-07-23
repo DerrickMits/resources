@@ -171,6 +171,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "account-planning-template",
+    title: "Account Planning Template — Strategic Client Management",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A structured account planning framework for managing strategic client relationships. Covers stakeholder mapping, opportunity identification, risk assessment, action planning, and quarterly business review preparation.",
+    highlights: [
+      {
+        label: "Stakeholder & Relationship Mapping",
+        detail:
+          "Templates for identifying key decision-makers, mapping influence networks, tracking engagement history, and planning executive touchpoints across the account lifecycle.",
+      },
+      {
+        label: "Opportunity & Growth Planning",
+        detail:
+          "Frameworks for uncovering cross-sell and upsell opportunities, tracking deal progression, forecasting account revenue, and aligning solutions with client business priorities.",
+      },
+      {
+        label: "Risk & Health Assessment",
+        detail:
+          "Structured criteria for evaluating account health, identifying churn signals, tracking NPS and satisfaction scores, and developing proactive retention strategies.",
+      },
+      {
+        label: "QBR & Executive Presentation",
+        detail:
+          "Agenda templates, performance scorecard layouts, and narrative frameworks for delivering high-impact quarterly business reviews to C-suite stakeholders.",
+      },
+    ],
+    tags: ["Account Planning", "Client Management", "Executive Framework", "CRM Strategy", "Growth"],
+    filename: "account-planning-template.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
