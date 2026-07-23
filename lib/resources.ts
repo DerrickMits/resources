@@ -103,6 +103,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "ai-prompts-for-career-exploration",
+    title: "AI Prompts for Career Exploration & Professional Development",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A structured collection of AI prompt templates designed to guide career exploration, skill gap analysis, resume tailoring, interview preparation, and strategic professional development planning.",
+    highlights: [
+      {
+        label: "Career Discovery Prompts",
+        detail:
+          "Prompt patterns for identifying transferable skills, exploring adjacent industries, and mapping career trajectories using AI-powered analysis of your professional background.",
+      },
+      {
+        label: "Skill Gap & Development",
+        detail:
+          "Templates for prompting AI to audit your current skill set against target roles, recommend learning pathways, and generate personalized upskilling roadmaps.",
+      },
+      {
+        label: "Resume & Application Strategy",
+        detail:
+          "Prompts for tailoring resumes to specific job descriptions, crafting compelling cover letters, and optimizing LinkedIn profiles with keyword-rich positioning.",
+      },
+      {
+        label: "Interview Readiness",
+        detail:
+          "Scenario-based prompts that simulate behavioral interviews, generate practice questions for executive roles, and provide structured feedback on your responses.",
+      },
+    ],
+    tags: ["AI Prompts", "Career Development", "Executive Growth", "Professional Skills", "Leadership"],
+    filename: "ai-prompts-for-career-exploration.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
