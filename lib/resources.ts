@@ -205,6 +205,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "seo-keyword-research-worksheet",
+    title: "SEO Keyword Research Worksheet — Editable Template",
+    category: "SOP Blueprint",
+    format: "PDF Document",
+    description:
+      "A ready-to-use SEO keyword research worksheet with structured fields for identifying high-value keywords, analyzing search intent, tracking competitor rankings, mapping content opportunities, and monitoring rank progression over time.",
+    highlights: [
+      {
+        label: "Keyword Discovery & Clustering",
+        detail:
+          "Templates for brainstorming seed keywords, expanding into long-tail variations, grouping by search intent (informational, navigational, transactional), and prioritizing by search volume and relevance.",
+      },
+      {
+        label: "Competitor Gap Analysis",
+        detail:
+          "Frameworks for tracking competitor keyword rankings, identifying content gaps, analyzing backlink profiles, and surfacing underserved topics with high traffic potential.",
+      },
+      {
+        label: "Content Mapping & Calendar",
+        detail:
+          "Structured fields for mapping keywords to content types (blog, landing page, guide), assigning target URLs, setting publishing timelines, and tracking content performance against rankings.",
+      },
+      {
+        label: "Rank Tracking & Optimization",
+        detail:
+          "Pre-built tables for monitoring SERP position changes, tracking click-through rates, logging on-page optimization actions, and measuring organic traffic growth over weekly and monthly intervals.",
+      },
+    ],
+    tags: ["SEO", "Keyword Research", "Content Strategy", "Digital Marketing", "SOP"],
+    filename: "seo-keyword-research-worksheet.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
