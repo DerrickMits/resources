@@ -8,12 +8,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { href: "https://portfoliosite-pearl-one.vercel.app#about", label: "About" },
-  { href: "https://portfoliosite-pearl-one.vercel.app#experience", label: "Experience" },
-  { href: "https://portfoliosite-pearl-one.vercel.app#projects", label: "Projects" },
-  { href: "https://portfoliosite-pearl-one.vercel.app#skills", label: "Skills" },
-  { href: "https://ledger-article-site.vercel.app", label: "The Ledger" },
-  { href: "https://portfoliosite-pearl-one.vercel.app#contact", label: "Contact" },
   { href: "/resources", label: "Resources", isActive: true },
 ];
 
