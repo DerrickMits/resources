@@ -2,36 +2,36 @@ import { ResourceAsset } from "./types";
 
 export const resources: ResourceAsset[] = [
   {
-    id: "ghl-sales-workflow-blueprint",
-    title: "GoHighLevel High-Performance Multi-Stage Sales Automation Engine",
-    category: "CRM Automation",
-    format: "GHL Workflow Blueprint (.JSON)",
+    id: "gtd-asana-workflow-guide",
+    title: "Getting Things Done (GTD) Workflow Implementation for Asana",
+    category: "SOP Blueprint",
+    format: "PDF Document",
     description:
-      "Complete operational blueprint featuring a 4-stage automated sales engine: inbound form lead nurturing, conditional hot-lead response routing, appointment confirmation with dynamic variables, and automated no-show recovery sequences.",
+      "A comprehensive step-by-step guide to implementing the GTD productivity methodology inside Asana. Covers inbox processing, project setup, context tags, weekly review cadence, and automation rules to keep your workflow running on autopilot.",
     highlights: [
       {
-        label: "Nurture Sequence",
+        label: "Inbox to Action",
         detail:
-          "Form submitted trigger, opportunity creation in NEW LEAD stage, business hour window enforcement (Mon to Fri, 9 AM to 5 PM), Stop on Response condition.",
+          "Capture every task, email, and idea into a unified Asana inbox. Process to next actions with clear project assignments, due dates, and priority tags.",
       },
       {
-        label: "Hot Lead Escalation",
+        label: "Project & Context Organization",
         detail:
-          "Customer reply filter via workflow targeting, stage move to HOT LEAD, real-time internal team alerts with contact name and message variables.",
+          "Structure projects by responsibility area and outcome. Use custom fields, sections, and context tags (Calls, Errands, Online, Desk) for filterable task views.",
       },
       {
-        label: "Appointment Booking Engine",
+        label: "Weekly Review Cadence",
         detail:
-          "Calendar triggers, dynamic email template integration (meeting location, start time, reschedule/cancel links), mobile push notification with one-tap opportunity card redirect, stage update to BOOKED.",
+          "Built-in weekly review checklist to clear inboxes, update project status, review someday/maybe items, and recalibrate priorities for the week ahead.",
       },
       {
-        label: "No Show Recovery Protocol",
+        label: "Automation Rules",
         detail:
-          "Appointment status trigger filtered to No Show, opportunity stage update to NO SHOW, re-entry toggle enabled, automated client re-engagement with SMS or email reschedule invites.",
+          "Pre-configured Asana automation rules for recurring task creation, assignment triggers, due date escalation, and cross-project sync to eliminate manual upkeep.",
       },
     ],
-    tags: ["GoHighLevel", "CRM Automation", "Workflow Engineering", "Lead Routing", "Sales Pipeline"],
-    filename: "gohighlevel-sales-workflow-blueprint.json",
+    tags: ["Asana", "GTD Methodology", "Productivity", "Workflow Design", "Project Management"],
+    filename: "gtd-asana-workflow-guide.pdf",
     version: "1.0.0",
     date: "2026-07-15",
   },
