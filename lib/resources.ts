@@ -137,6 +137,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "marketing-plan-template-hubspot",
+    title: "Marketing Plan Template — HubSpot Strategic Framework",
+    category: "SOP Blueprint",
+    format: "PDF Document",
+    description:
+      "A comprehensive marketing plan template built around the HubSpot methodology. Covers audience segmentation, campaign strategy, content planning, budget allocation, KPI tracking, and performance reporting for full-funnel marketing execution.",
+    highlights: [
+      {
+        label: "Audience & Market Analysis",
+        detail:
+          "Structured frameworks for defining buyer personas, mapping customer journeys, analyzing competitive positioning, and identifying high-value market segments.",
+      },
+      {
+        label: "Campaign Strategy & Planning",
+        detail:
+          "Templates for outlining campaign objectives, channel selection, content themes, lead magnet design, and multi-touch attribution models across paid, owned, and earned media.",
+      },
+      {
+        label: "Budget & Resource Allocation",
+        detail:
+          "Spreadsheet-ready tables for allocating spend across channels, calculating CAC and ROAS, forecasting pipeline value, and adjusting budgets based on performance data.",
+      },
+      {
+        label: "KPI Dashboards & Reporting",
+        detail:
+          "Pre-built KPI frameworks covering top-of-funnel awareness, mid-funnel engagement, bottom-funnel conversion, and retention metrics with reporting cadence recommendations.",
+      },
+    ],
+    tags: ["HubSpot", "Marketing Strategy", "Campaign Planning", "SOP", "Growth"],
+    filename: "marketing-plan-template-hubspot.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
