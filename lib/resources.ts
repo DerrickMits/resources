@@ -375,6 +375,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "gen-ai-mastermind-tools",
+    title: "Gen AI Mastermind — Essential Tools & Resource Catalog",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A curated catalog of the most effective generative AI tools, platforms, and resources for operations professionals. Covers AI writing assistants, automation platforms, research copilots, design tools, and productivity enhancers with use case recommendations.",
+    highlights: [
+      {
+        label: "AI Writing & Content Tools",
+        detail:
+          "Curated list of tools for drafting, editing, summarizing, and repurposing content across formats including emails, reports, proposals, social posts, and executive communications.",
+      },
+      {
+        label: "Automation & Workflow Platforms",
+        detail:
+          "Toolkit of AI-powered automation platforms covering no-code workflow builders, CRM integrations, email sequencing, data extraction, and process orchestration with practical setup guidance.",
+      },
+      {
+        label: "Research & Analysis Copilots",
+        detail:
+          "AI tools for market research, competitive analysis, data synthesis, document interrogation, and insight generation with comparison matrices for selecting the right tool per use case.",
+      },
+      {
+        label: "Design & Presentation Tools",
+        detail:
+          "Generative AI tools for creating presentations, data visualizations, diagrams, brand assets, and marketing collateral with prompt patterns for achieving professional-grade output.",
+      },
+    ],
+    tags: ["AI Tools", "Mastermind", "Productivity", "Executive Reference", "Digital Fluency"],
+    filename: "gen-ai-mastermind-tools.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
