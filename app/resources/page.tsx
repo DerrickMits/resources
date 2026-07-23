@@ -2,7 +2,6 @@
 
 import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
-import { Download, FileCode } from "lucide-react";
 import { resources } from "@/lib/resources";
 import { ResourceAsset } from "@/lib/types";
 import ResourceCard from "@/components/ResourceCard";
@@ -87,28 +86,6 @@ export default function ResourcesPage() {
             operational frameworks, and downloadable assets designed to optimize
             workflows, streamline client management, and scale business operations.
           </p>
-        </motion.div>
-
-        {/* Stats bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="flex flex-wrap justify-center items-center gap-6 mb-14"
-        >
-          <div className="flex items-center gap-2 text-sm text-warm-500 dark:text-warm-400 bg-white/60 dark:bg-warm-800/60 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-warm-200/60 dark:border-warm-700/60">
-            <FileCode className="w-4 h-4 text-warm-600 dark:text-warm-300" />
-            <span>
-              <strong className="text-warm-800 dark:text-warm-200">
-                {resources.length}
-              </strong>{" "}
-              {resources.length === 1 ? "Blueprint" : "Blueprints"} Available
-            </span>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-warm-500 dark:text-warm-400 bg-white/60 dark:bg-warm-800/60 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-warm-200/60 dark:border-warm-700/60">
-            <Download className="w-4 h-4 text-warm-600 dark:text-warm-300" />
-            <span>Direct JSON Import</span>
-          </div>
         </motion.div>
 
         {/* Resource Cards Grid */}
