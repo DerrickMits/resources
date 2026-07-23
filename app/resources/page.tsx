@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Download, FileCode } from "lucide-react";
 import { resources } from "@/lib/resources";
@@ -11,17 +11,22 @@ import DownloadModal from "@/components/DownloadModal";
 export default function ResourcesPage() {
   const [selectedResource, setSelectedResource] = useState<ResourceAsset | null>(null);
   const [downloading, setDownloading] = useState(false);
-  const [success, setSuccess] = useState(false);
+  const [downloadStarted, setDownloadStarted] = useState(false);
+  const [downloadCompleted, setDownloadCompleted] = useState(false);
 
   const handleDownload = (resource: ResourceAsset) => {
     setSelectedResource(resource);
-    setSuccess(false);
+    setDownloadStarted(false);
+    setDownloadCompleted(false);
   };
 
-  const handleConfirm = async () => {
+  const handleConfirm = useCallback(async () => {
     if (!selectedResource) return;
 
     setDownloading(true);
+    // Trigger "Download Started" immediately after a brief moment
+    // so the UI transition is visible and feels premium
+    setTimeout(() => setDownloadStarted(true), 200);
 
     try {
       const res = await fetch(`/api/download/${selectedResource.filename}`);
@@ -36,8 +41,6 @@ export default function ResourcesPage() {
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
-
-      setSuccess(true);
     } catch {
       // Fallback: direct static file download
       const a = document.createElement("a");
@@ -46,15 +49,21 @@ export default function ResourcesPage() {
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      setSuccess(true);
     }
 
     setDownloading(false);
-  };
+    // Brief pause so the user sees the "Download Started" animation complete
+    // then transition to "Download Completed"
+    setTimeout(() => {
+      setDownloadStarted(false);
+      setDownloadCompleted(true);
+    }, 1500);
+  }, [selectedResource]);
 
   const closeModal = () => {
     setSelectedResource(null);
-    setSuccess(false);
+    setDownloadStarted(false);
+    setDownloadCompleted(false);
   };
 
   return (
@@ -74,9 +83,9 @@ export default function ResourcesPage() {
             Blueprints &amp; Downloads
           </h1>
           <p className="text-warm-600 dark:text-warm-400 text-lg max-w-2xl mx-auto mt-5 leading-relaxed">
-            Ready-to-import workflow configurations, operational frameworks,
-            and automation blueprints. Each asset includes structured JSON for
-            direct import into your GoHighLevel sub-account.
+            Ready-to-use operational blueprints, workflow guides, and productivity
+            frameworks. Each asset is available for direct download in PDF or
+            structured document format.
           </p>
         </motion.div>
 
@@ -135,7 +144,8 @@ export default function ResourcesPage() {
         onClose={closeModal}
         onConfirm={handleConfirm}
         downloading={downloading}
-        success={success}
+        downloadStarted={downloadStarted}
+        downloadCompleted={downloadCompleted}
       />
     </section>
   );
