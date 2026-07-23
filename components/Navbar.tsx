@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Sun, Moon, Menu, X } from "lucide-react";
+import { Sun, Moon, Menu, X, Feather } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -38,11 +38,16 @@ export default function Navbar() {
         }`}
       >
         <nav className="max-w-6xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+          {/* Wordmark — matches The Ledger style */}
           <Link
             href="/"
-            className="font-display text-xl font-bold text-warm-900 dark:text-warm-100 hover:text-warm-700 dark:hover:text-warm-300 transition-colors"
+            className="absolute left-1/2 -translate-x-1/2 font-display text-lg sm:text-xl font-bold text-warm-900 dark:text-warm-100 hover:text-warm-700 dark:hover:text-warm-300 transition-colors inline-flex items-center gap-1.5"
           >
-            Resources Hub
+            <Feather
+              className="w-4 h-4 text-accent dark:text-warm-300"
+              strokeWidth={2}
+            />
+            <span>Resources</span>
           </Link>
 
           {/* Desktop Links */}
