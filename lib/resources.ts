@@ -341,6 +341,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "building-claude-artifacts",
+    title: "Building Claude Artifacts — A Practical Guide",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A hands-on guide to creating, customizing, and deploying Claude Artifacts for operational workflows. Covers artifact types, prompt patterns, design principles, version management, and real-world use cases for executive productivity.",
+    highlights: [
+      {
+        label: "Artifact Fundamentals",
+        detail:
+          "Overview of Claude Artifact types (documents, code, diagrams, dashboards), the artifact lifecycle, and best practices for structuring reusable AI-generated assets.",
+      },
+      {
+        label: "Prompt Patterns for Artifacts",
+        detail:
+          "Proven prompt templates for generating consistent, high-quality artifacts across categories including operational templates, data visualizations, workflow diagrams, and decision frameworks.",
+      },
+      {
+        label: "Design & Customization",
+        detail:
+          "Principles for styling artifacts with Tailwind CSS, embedding interactive elements, managing responsive layouts, and maintaining brand consistency across generated assets.",
+      },
+      {
+        label: "Version Management & Workflow",
+        detail:
+          "Strategies for iterating on artifacts, maintaining version history, integrating artifacts into recurring operational processes, and sharing them across teams for maximum reuse.",
+      },
+    ],
+    tags: ["Claude AI", "Artifacts", "Prompt Engineering", "Executive Productivity", "AI Tools"],
+    filename: "building-claude-artifacts.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
