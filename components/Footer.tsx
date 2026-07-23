@@ -17,9 +17,6 @@ export default function Footer() {
         <p className="font-display text-2xl font-bold text-warm-900 dark:text-warm-100 mb-2">
           Resources Hub
         </p>
-        <p className="text-warm-600 dark:text-warm-300 text-sm mb-1">
-          Operational Blueprints &amp; Executive Frameworks
-        </p>
         <p className="text-warm-500 dark:text-warm-600 text-xs">
           &copy; {currentYear} Derrick Odiwuor. All rights reserved.
         </p>
