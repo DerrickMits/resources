@@ -409,6 +409,40 @@ export const resources: ResourceAsset[] = [
     version: "1.0.0",
     date: "2026-07-15",
   },
+  {
+    id: "building-custom-ai-assistants",
+    title: "Building Custom AI Assistants — A Practical Guide",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "A step-by-step guide to designing, building, and deploying custom AI assistants for operational workflows. Covers assistant architecture, instruction crafting, knowledge base integration, capability selection, and real-world deployment patterns.",
+    highlights: [
+      {
+        label: "Assistant Design & Architecture",
+        detail:
+          "Frameworks for defining assistant purpose, scope, and personality. Guidance on selecting the right model, configuring system instructions, and structuring conversation flows for consistent output.",
+      },
+      {
+        label: "Knowledge Base Integration",
+        detail:
+          "Methods for uploading and managing reference documents, structuring knowledge sources, setting retrieval parameters, and keeping assistant knowledge current through automated updates.",
+      },
+      {
+        label: "Capability Configuration",
+        detail:
+          "Walkthrough of enabling and configuring capabilities including file uploads, code execution, web browsing, image analysis, and integration with external APIs and tools.",
+      },
+      {
+        label: "Deployment & Iteration Patterns",
+        detail:
+          "Strategies for testing assistant responses, gathering user feedback, iterating on instructions, managing versioned configurations, and scaling assistants across teams and use cases.",
+      },
+    ],
+    tags: ["AI Assistants", "Claude AI", "Custom GPT", "Prompt Engineering", "AI Tools"],
+    filename: "building-custom-ai-assistants.pdf",
+    version: "1.0.0",
+    date: "2026-07-15",
+  },
 ];
 
 export function getResourceById(id: string): ResourceAsset | undefined {
