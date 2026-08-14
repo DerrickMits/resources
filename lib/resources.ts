@@ -2,6 +2,40 @@ import { ResourceAsset } from "./types";
 
 export const resources: ResourceAsset[] = [
   {
+    id: "consulting-form-fix-enhancement-documentation",
+    title: "Consulting Form Fix & Enhancement Documentation",
+    category: "Executive Framework",
+    format: "PDF Document",
+    description:
+      "Complete technical documentation covering the diagnosis and resolution of a broken Make.com webhook integration on the consulting intake form, plus the implementation of AI-powered personalized email notifications using Google Gemini. Includes root cause analysis, architecture decisions, prompt engineering details, iterative refinements, environment configuration, testing procedures, and future enhancement roadmap.",
+    highlights: [
+      {
+        label: "Root Cause Analysis",
+        detail:
+          "Identified missing MAKE_COM_WEBHOOK_URL environment variable as the cause of failed webhook triggers on form submission. Added variable to .env.local and Vercel production configuration.",
+      },
+      {
+        label: "AI-Personalized Email System",
+        detail:
+          "Built dual-email notification system using Gemini 1.5 Flash: client confirmation emails and admin notifications, each uniquely generated from form responses (company, CRM, bottleneck, tools, manual tasks). Includes robust fallback templates for API failures.",
+      },
+      {
+        label: "Prompt Engineering & Iteration",
+        detail:
+          "Designed structured prompts for both email types with specific tone, formatting, and content requirements. Iteratively refined: made admin format human-readable (scannable fields vs raw JSON), removed onboarding portal links per UX feedback, removed emoji from subject lines.",
+      },
+      {
+        label: "Environment & Deployment",
+        detail:
+          "Complete environment variable reference for local development and Vercel production. Covers SMTP, Make.com webhook, Gemini API, Supabase, Redis, Calendly, and cron secrets. Includes deployment checklist and git history summary.",
+      },
+    ],
+    tags: ["Webhook Integration", "Make.com", "Gemini AI", "Email Automation", "Next.js", "Technical Documentation"],
+    filename: "consulting-form-fix-enhancement-documentation.pdf",
+    version: "1.0.0",
+    date: "2026-08-14",
+  },
+  {
     id: "gtd-asana-workflow-guide",
     title: "Getting Things Done (GTD) Workflow Implementation for Asana",
     category: "SOP Blueprint",
