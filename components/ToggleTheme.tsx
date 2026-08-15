@@ -4,7 +4,7 @@ import { useEffect, useId, useState } from "react";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "lucide-react";
 
-import { Switch } from "@/components/ui/switch";
+import Switch from "./ui/switch";
 
 export default function ToggleTheme() {
   const id = useId();
