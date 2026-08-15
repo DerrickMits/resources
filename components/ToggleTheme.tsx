@@ -4,7 +4,7 @@ import { useEffect, useId, useState } from "react";
 import { useTheme } from "next-themes";
 import { SunIcon, MoonIcon } from "lucide-react";
 
-import Switch from "./ui/switch";
+import { Switch } from "./ui/switch";
 
 export default function ToggleTheme() {
   const id = useId();
@@ -36,13 +36,12 @@ export default function ToggleTheme() {
         aria-controls={id}
         onClick={() => setTheme("light")}
         className="cursor-pointer text-sm font-medium"
-        className="cursor-pointer text-sm font-medium"
         style={{ transitionProperty: "color, opacity" }}
       >
         <SunIcon className="size-4" aria-hidden="true" />
       </button>
 
-      <Switch
+      <Switch.Root
         id={id}
         checked={isDark}
         onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
@@ -50,7 +49,9 @@ export default function ToggleTheme() {
         aria-label="Toggle between dark and light mode"
         className="data-[state=checked]:bg-warm-900 data-[state=unchecked]:bg-warm-200"
         style={{ transitionProperty: "background-color" }}
-      />
+      >
+        <Switch.Thumb className="pointer-events-none block h-5 w-5 rounded-full bg-white shadow-lg ring-0 transition-transform data-[checked]:translate-x-5 data-[unchecked]:translate-x-0" />
+      </Switch.Root>
 
       <button
         id={`${id}-dark`}
