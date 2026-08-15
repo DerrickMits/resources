@@ -1,23 +1,19 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { Sun, Moon, Feather, ArrowLeft } from "lucide-react";
+import { Feather, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import ToggleTheme from "./ToggleTheme";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
   return (
     <header
@@ -55,21 +51,7 @@ export default function Navbar() {
         </Link>
 
         {/* Theme toggle */}
-        <div className="flex items-center">
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              className="w-9 h-9 rounded-xl bg-warm-100 dark:bg-warm-800 flex items-center justify-center hover:bg-warm-200 dark:hover:bg-warm-700 transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="w-4 h-4 text-warm-300" strokeWidth={2} />
-              ) : (
-                <Moon className="w-4 h-4 text-warm-700" strokeWidth={2} />
-              )}
-            </button>
-          )}
-        </div>
+        <ToggleTheme />
       </nav>
     </header>
   );
