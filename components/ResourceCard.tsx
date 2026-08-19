@@ -9,8 +9,10 @@ import {
   SquareArrowOutUpRight,
   Link,
   Check,
+  Bell,
 } from "lucide-react";
 import { ResourceAsset } from "@/lib/types";
+import FollowModal from "@/components/FollowModal";
 
 interface ResourceCardProps {
   resource: ResourceAsset;
@@ -72,6 +74,8 @@ export default function ResourceCard({
   index,
   onDownload,
 }: ResourceCardProps) {
+  const [followOpen, setFollowOpen] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -148,7 +152,24 @@ export default function ResourceCard({
 
         {/* Copy Link Button */}
         <CopyLinkButton filename={resource.filename} />
+
+        {/* Follow bell */}
+        <button
+          onClick={() => setFollowOpen(true)}
+          title="Get notified of updates"
+          aria-label="Notify me when updated"
+          className="inline-flex items-center justify-center px-3 py-2.5 rounded-xl border border-warm-200 dark:border-warm-700 text-warm-600 dark:text-warm-400 hover:bg-warm-100 dark:hover:bg-warm-800 transition-colors"
+        >
+          <Bell className="w-4 h-4" />
+        </button>
       </div>
+
+      {/* Follow modal */}
+      <FollowModal
+        open={followOpen}
+        onClose={() => setFollowOpen(false)}
+        filename={resource.filename}
+      />
     </motion.div>
   );
 }
