@@ -119,6 +119,36 @@ export default function SupportModal({ open, onClose }: SupportModalProps) {
                 Support via Link
               </a>
 
+              {/* Divider */}
+              <div className="relative my-5">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-warm-200 dark:border-warm-700" />
+                </div>
+                <div className="relative flex justify-center">
+                  <span className="bg-white dark:bg-warm-900 px-3 text-xs text-warm-400 dark:text-warm-500">
+                    or support via PayPal
+                  </span>
+                </div>
+              </div>
+
+              {/* PayPal button — secondary outlined style */}
+              <a
+                href="https://paypal.me/derrickodiwuor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-xl border border-warm-200 dark:border-warm-700 text-warm-700 dark:text-warm-300 font-medium hover:bg-warm-100 dark:hover:bg-warm-800 transition-colors text-sm"
+              >
+                <svg
+                  className="w-4 h-4"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.016-2.634 6.045-7.231 6.045h-2.19c-.142 0-.263.085-.287.242l-.835 5.291-.222 1.406a.31.31 0 0 0 .317.371h3.485c.49 0 .72-.365.79-.736l.046-.203.786-4.891.051-.252c.04-.24.24-.428.483-.428h.633c2.267 0 4.064-.477 5.128-1.716 1.268-1.453 1.432-3.625 1.116-6.636-.047-.476-.187-.744-.452-.804z" />
+                </svg>
+                Support via PayPal
+              </a>
+
               {/* Secondary dismiss link */}
               <button
                 onClick={onClose}
