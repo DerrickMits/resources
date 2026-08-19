@@ -473,7 +473,7 @@ export const resources: ResourceAsset[] = [
       },
     ],
     tags: ["AI Assistants", "Claude AI", "Custom GPT", "Prompt Engineering", "AI Tools"],
-    filename: "building-custom-ai-assistants.pdf",
+    filename: "custom-ai-assistant.pdf",
     version: "1.0.0",
     date: "2026-07-15",
   },
