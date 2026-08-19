@@ -131,11 +131,15 @@ export default function ResourceRequest() {
                   id="sopTopic"
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
-                  placeholder="e.g. A CRM automation SOP for lead qualification..."
+                  placeholder='e.g. "A social media content calendar for a SaaS startup"'
+                  maxLength={100}
                   rows={3}
                   className="w-full px-4 py-2.5 rounded-xl bg-warm-50 dark:bg-warm-800 border border-warm-200 dark:border-warm-700 text-warm-900 dark:text-warm-100 placeholder:text-warm-400 dark:placeholder:text-warm-500 text-sm focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition-colors resize-none"
                   required
                 />
+                <p className="mt-1.5 text-xs text-warm-400 dark:text-warm-500">
+                  Keep it brief — max 100 characters (one or two sentences)
+                </p>
               </div>
 
               {/* Error message */}
