@@ -405,7 +405,7 @@ export const resources: ResourceAsset[] = [
       },
     ],
     tags: ["Claude AI", "Artifacts", "Prompt Engineering", "Executive Productivity", "AI Tools"],
-    filename: "building-claude-artifacts.pdf",
+    filename: "claude-artifacts.pdf",
     version: "1.0.0",
     date: "2026-07-15",
   },
