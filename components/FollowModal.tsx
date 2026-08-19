@@ -10,8 +10,7 @@ interface FollowModalProps {
   filename: string;
 }
 
-const WEBHOOK_URL =
-  "https://hook.eu1.make.com/s3quoxyplnumfny27ybe5dk6n7nohs5e";
+const API_URL = "/api/follow-webhook";
 
 export default function FollowModal({ open, onClose, filename }: FollowModalProps) {
   const [email, setEmail] = useState("");
@@ -25,6 +24,7 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
     if (!email.trim()) {
       setError("Please enter your email address.");
       return;
@@ -33,9 +33,10 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
       setError("Please enter a valid email address.");
       return;
     }
+
     setSubmitting(true);
     try {
-      const res = await fetch(WEBHOOK_URL, {
+      const res = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -44,17 +45,22 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
           subscribedAt: new Date().toISOString(),
         }),
       });
-      if (!res.ok) throw new Error(`Webhook responded ${res.status}`);
+      const data = await res.json();
+      if (!res.ok || !data.ok) {
+        throw new Error(data?.message || "Webhook failed");
+      }
       setSubmitted(true);
       setEmail("");
-    } catch {
-      setError("Something went wrong. Please try again.");
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
     } finally {
       setSubmitting(false);
     }
   };
 
-  /* close on Escape + lock scroll + focus trap */
+  /* Escape key + scroll lock + focus top-close button */
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -73,7 +79,7 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
     };
   }, [open, onClose]);
 
-  /* reset state when reopened (slug could differ) */
+  /* Reset every time the modal opens (slug may differ) */
   useEffect(() => {
     if (open) {
       setSubmitted(false);
@@ -99,67 +105,43 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
             WebkitBackdropFilter: "blur(8px)",
           }}
           onClick={onClose}
-          role="presentation"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.93, y: 18 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.93, y: 18 }}
-            transition={{
-              duration: 0.25,
-              type: "spring",
-              stiffness: 360,
-              damping: 28,
-            }}
+            transition={{ duration: 0.25, type: "spring", stiffness: 360, damping: 28 }}
             onClick={(e) => e.stopPropagation()}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="follow-modal-heading"
             className="relative w-full max-w-xs bg-white dark:bg-warm-900 rounded-2xl shadow-2xl border border-warm-200 dark:border-warm-800 p-5 sm:p-6"
           >
-            {/* Close */}
-            <button
-              ref={closeButtonRef}
-              onClick={onClose}
-              className="absolute top-3 right-3 w-7 h-7 rounded-full bg-warm-100 dark:bg-warm-800 flex items-center justify-center hover:bg-warm-200 dark:hover:bg-warm-700 transition-colors"
-              aria-label="Close"
-            >
-              <X className="w-3.5 h-3.5 text-warm-600 dark:text-warm-300" />
-            </button>
+            {/* ── Success ── */}
+            {submitted ? (
+              <div className="text-center pt-2 pb-1">
+                <p className="text-sm text-warm-700 dark:text-warm-300 font-medium leading-relaxed">
+                  Subscribed! We&rsquo;ll email you when this blueprint
+                  gets updated.
+                </p>
+                <button
+                  onClick={onClose}
+                  className="mt-4 text-xs text-accent dark:text-warm-300 hover:underline transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            ) : (
+              <>
+                {/* Close */}
+                <button
+                  ref={closeButtonRef}
+                  onClick={onClose}
+                  className="absolute top-3 right-3 w-7 h-7 rounded-full bg-warm-100 dark:bg-warm-800 flex items-center justify-center hover:bg-warm-200 dark:hover:bg-warm-700 transition-colors"
+                  aria-label="Close"
+                >
+                  <X className="w-3.5 h-3.5 text-warm-600 dark:text-warm-300" />
+                </button>
 
-            <AnimatePresence mode="wait">
-              {submitted ? (
-                <motion.div
-                  key="follow-success"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  className="text-center pt-2 pb-1"
-                >
-                  <p className="text-sm text-warm-700 dark:text-warm-300 font-medium leading-relaxed">
-                    Subscribed! We&rsquo;ll email you when this blueprint
-                    gets updated.
-                  </p>
-                  <button
-                    onClick={onClose}
-                    className="mt-4 text-xs text-accent dark:text-warm-300 hover:underline transition-colors"
-                  >
-                    Close
-                  </button>
-                </motion.div>
-              ) : (
-                <motion.form
-                  key="follow-form"
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  onSubmit={handleSubmit}
-                  className="space-y-4"
-                >
-                  <h3
-                    id="follow-modal-heading"
-                    className="text-base font-display font-bold text-warm-900 dark:text-warm-100 pr-6"
-                  >
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <h3 className="text-base font-display font-bold text-warm-900 dark:text-warm-100 pr-6">
                     Follow this Blueprint
                   </h3>
                   <p className="text-xs text-warm-600 dark:text-warm-400 leading-relaxed">
@@ -172,7 +154,7 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
                       htmlFor="followEmail"
                       className="block text-xs font-medium text-warm-700 dark:text-warm-300 mb-1"
                     >
-                      Your email address <span className="text-accent">*</span>
+                      Your email <span className="text-accent">*</span>
                     </label>
                     <input
                       id="followEmail"
@@ -185,18 +167,11 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
                     />
                   </div>
 
-                  <AnimatePresence>
-                    {error && (
-                      <motion.p
-                        initial={{ opacity: 0, y: -3 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        className="text-xs text-red-500 dark:text-red-400"
-                      >
-                        {error}
-                      </motion.p>
-                    )}
-                  </AnimatePresence>
+                  {error && (
+                    <p className="text-xs text-red-500 dark:text-red-400">
+                      {error}
+                    </p>
+                  )}
 
                   <button
                     type="submit"
@@ -205,9 +180,9 @@ export default function FollowModal({ open, onClose, filename }: FollowModalProp
                   >
                     {submitting ? "Sending…" : "Subscribe to Updates"}
                   </button>
-                </motion.form>
-              )}
-            </AnimatePresence>
+                </form>
+              </>
+            )}
           </motion.div>
         </motion.div>
       )}
