@@ -133,7 +133,7 @@ export default function SupportModal({ open, onClose }: SupportModalProps) {
 
               {/* PayPal button — secondary outlined style */}
               <a
-                href="https://paypal.me/derrickodiwuor"
+                href="https://www.paypal.com/ncp/payment/TQ5Z884MBZA3W"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 w-full px-5 py-2.5 rounded-xl border border-warm-200 dark:border-warm-700 text-warm-700 dark:text-warm-300 font-medium hover:bg-warm-100 dark:hover:bg-warm-800 transition-colors text-sm"
