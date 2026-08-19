@@ -9,7 +9,7 @@ interface SupportModalProps {
   onClose: () => void;
 }
 
-const BUY_ME_A_SODA_URL = "https://www.buymeasoda.com/qGOV2LRA2mc1A8g98AbZJnVpSDz2";
+const BUY_ME_A_SODA_URL = "https://buymesoda.com/qGOV2LRA2mc1A8g98AbZJnVpSDz2";
 const QR_CODE_URL = "https://api.buymesoda.com/media/qr_codes/qGOV2LRA2mc1A8g98AbZJnVpSDz2.png";
 
 export default function SupportModal({ open, onClose }: SupportModalProps) {
