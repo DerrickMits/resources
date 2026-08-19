@@ -1,11 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import {
   Download,
   CheckCircle2,
   FileCode,
   SquareArrowOutUpRight,
+  Link,
+  Check,
 } from "lucide-react";
 import { ResourceAsset } from "@/lib/types";
 
@@ -13,6 +16,55 @@ interface ResourceCardProps {
   resource: ResourceAsset;
   index: number;
   onDownload: (resource: ResourceAsset) => void;
+}
+
+/* ── CopyLinkButton ─────────────────────────────────────────────────────── */
+function CopyLinkButton({ filename }: { filename: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleClick = async () => {
+    const shareUrl = `${window.location.origin}/blueprints/${filename}`;
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+    } catch {
+      // Fallback for older browsers / insecure contexts
+      const ta = document.createElement("textarea");
+      ta.value = shareUrl;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      title="Copy direct link"
+      aria-label={copied ? "Link copied" : "Copy direct link"}
+      className={`inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl border text-sm transition-colors ${
+        copied
+          ? "border-green-200 bg-green-50 text-green-700 dark:border-green-800 dark:bg-green-900/30 dark:text-green-400"
+          : "border-warm-200 dark:border-warm-700 text-warm-600 dark:text-warm-400 hover:bg-warm-100 dark:hover:bg-warm-800"
+      }`}
+    >
+      {copied ? (
+        <>
+          <Check className="w-4 h-4" />
+          <span className="hidden sm:inline">Copied!</span>
+        </>
+      ) : (
+        <>
+          <Link className="w-4 h-4" />
+          <span className="hidden sm:inline">Copy Link</span>
+        </>
+      )}
+    </button>
+  );
 }
 
 export default function ResourceCard({
@@ -82,15 +134,21 @@ export default function ResourceCard({
         ))}
       </div>
 
-      {/* Download Button */}
-      <button
-        onClick={() => onDownload(resource)}
-        className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-warm-900 dark:bg-warm-100 text-white dark:text-warm-900 font-medium hover:bg-warm-800 dark:hover:bg-warm-200 transition-colors shadow-sm text-sm"
-      >
-        <Download className="w-4 h-4" />
-        Download Blueprint
-        <SquareArrowOutUpRight className="w-3.5 h-3.5 opacity-60" />
-      </button>
+      {/* Actions: Download + Copy Link */}
+      <div className="flex items-stretch gap-3">
+        {/* Download Button */}
+        <button
+          onClick={() => onDownload(resource)}
+          className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-warm-900 dark:bg-warm-100 text-white dark:text-warm-900 font-medium hover:bg-warm-800 dark:hover:bg-warm-200 transition-colors shadow-sm text-sm"
+        >
+          <Download className="w-4 h-4" />
+          Download Blueprint
+          <SquareArrowOutUpRight className="w-3.5 h-3.5 opacity-60" />
+        </button>
+
+        {/* Copy Link Button */}
+        <CopyLinkButton filename={resource.filename} />
+      </div>
     </motion.div>
   );
 }
