@@ -439,7 +439,7 @@ export const resources: ResourceAsset[] = [
       },
     ],
     tags: ["AI Tools", "Mastermind", "Productivity", "Executive Reference", "Digital Fluency"],
-    filename: "gen-ai-mastermind-tools.pdf",
+    filename: "generative-ai-tools.pdf",
     version: "1.0.0",
     date: "2026-07-15",
   },
