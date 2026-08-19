@@ -99,7 +99,9 @@ export default function ResourcesPage() {
         )}
 
         {/* Resource Request */}
-        <ResourceRequest />
+        <div className="mt-12 md:mt-20">
+          <ResourceRequest />
+        </div>
       </div>
 
       {/* Support Modal — opens on every download click */}
