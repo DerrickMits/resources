@@ -6,6 +6,7 @@ import { resources } from "@/lib/resources";
 import { ResourceAsset } from "@/lib/types";
 import ResourceCard from "@/components/ResourceCard";
 import SupportModal from "@/components/SupportModal";
+import ResourceRequest from "@/components/ResourceRequest";
 
 export default function ResourcesPage() {
   const [showSupportModal, setShowSupportModal] = useState(false);
@@ -96,6 +97,9 @@ export default function ResourcesPage() {
             </p>
           </motion.div>
         )}
+
+        {/* Resource Request */}
+        <ResourceRequest />
       </div>
 
       {/* Support Modal — opens on every download click */}
